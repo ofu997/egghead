@@ -1,0 +1,15 @@
+<body>
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type='text/babel'>
+    const rootElement = document.getElementById('root');
+    const children = 'Hello World';
+    const className = 'container';
+    const childrenandclassname = { children, className };
+    // using spread operator
+    const element = <div {...childrenandclassname} />;
+    ReactDOM.render(element, rootElement);
+  </script>
+</body>

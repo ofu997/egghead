@@ -1,0 +1,28 @@
+<body>
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type='text/babel'>
+    function Message(props) {
+      return <span className="message">{props.children}</span>;
+    }
+
+    const element = (
+      <div>
+      <Message children='hello '/>
+      {Message ({children: "world"})}
+      <Message>!</Message>
+      </div>
+    )
+
+    // const element = React.createElement(
+    //     React.Fragment,
+    //     null,
+    //     <Message msg='hello'/>,
+    //     {Message({msg: "world!"})}
+    // )
+
+    ReactDOM.render(element, document.getElementById('root'));  
+  </script>
+</body
