@@ -1,0 +1,44 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    function Greeting() {
+      // useState in a functional component- Returns a stateful VALUE, and a FUNCTION to update it.
+      // During the initial render, the returned state (state) is the same
+      // as the value passed as the first argument (initialState).
+      const [name, setName] = React.useState('');
+      // same as :
+      // const stateArray = React.useState('');
+      // const name = stateArray[0];
+      // const setName = stateArray[1];
+
+      // The setState function is used to update the state.
+      // It accepts a new state value and enqueues a re-render of the component.
+      // During subsequent re-renders, the first value returned by useState
+      // will always be the most recent state after applying updates.
+      
+      // this won't work
+      // const handleChange = event => name = event.target.value;
+      // this works
+      const handleChange = event => setName(event.target.value);
+      return (
+        <div>
+          <form>
+            {/* htmlFor is the same thing as For attribute in HTML */}
+            <label htmlFor="name">Name: </label>
+            <input onChange={handleChange} id="name" />
+          </form>
+          {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+        </div>
+      );
+    }
+
+    ReactDOM.render(<Greeting />, document.getElementById('root'));
+  </script>
+  <!-- - [Kent's Blog - React Hooks: Array Destructuring Fundamentals](https://kentcdodds.com/blog/react-hooks-array-destructuring-fundamentals)
+  - [Kent's Blog - 5 Tips to Help You Avoid React Hooks Pitfalls](https://kentcdodds.com/blog/react-hooks-pitfalls)
+  - [Kent's Blog - React Hooks: Compound Components](https://kentcdodds.com/blog/compound-components-with-react-hooks)
+  - [React Docs - Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html) -->
+</body>
